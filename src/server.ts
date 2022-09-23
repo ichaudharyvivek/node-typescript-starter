@@ -1,11 +1,13 @@
 import express, { Request, Response, Application } from 'express';
-import add from '@src/utils/add';
+import {add} from '@src/utils/add';
+import {getDate} from '@src/utils/date';
 
 const PORT = process.env.PORT || 3000;
 const app: Application = express();
+const x = 7;
 
 app.get('/', (req: Request, res: Response) => {
-  res.status(200).json({ success: true, msg: 'Go to route /add?a=<number>&b=<number> to add two numbers' });
+  res.status(200).json({ success: true, date: getDate(), msg: 'Go to route /add?a=<number>&b=<number> to add two numbers' });
 });
 
 app.get('/add', (req: Request, res: Response) => {
